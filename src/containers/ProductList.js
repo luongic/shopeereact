@@ -100,7 +100,8 @@ function ProductList(){
 
     const [currentPage, setCurrentpage] = useState(1)
     const pagiRef = useRef()
-
+    
+    // eslint-disable-next-line
     useEffect(()=>{
         
         if (pagiRef.current) {
