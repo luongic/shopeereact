@@ -3,8 +3,8 @@
 Let check out lastest deploy at: [https://shopeeredux.netlify.app/]
 
 About this project:
-Update from the first version only using HTML and pure CSS,
-I already using React, React-redux and axios to call API product from DummyJSON for this version
+Update from the first version only using HTML and pure CSS.
+I already using React, React-redux and axios to call API product from DummyJSON for this version and some UI component from MaterialUI
 
 
 In the project directory, you can run:
