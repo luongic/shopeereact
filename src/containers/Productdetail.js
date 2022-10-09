@@ -41,7 +41,9 @@ function Productdetail(){
             dispatch(removeSelectedProduct())
         }
         
-    }, [productId])
+    },
+    // eslint-disable-next-line
+    [productId])
 
     const handleChangeThumnail =(item)=>{
         setThumnail(item)

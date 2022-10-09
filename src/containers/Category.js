@@ -56,6 +56,7 @@ function Category(){
             dispatch(setProducts(response.data.products))
         }
         fetchData()
+        console.log()
     }
 
     return (

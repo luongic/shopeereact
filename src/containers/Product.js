@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 
 function Product(props){
@@ -31,18 +31,7 @@ function Product(props){
 
                     <div className="home-product-item__action">
 
-                        {/* <span className="home-product-item__like home-product-item__like--liked">
-                            <i className="home-product-item__like-icon-empty far fa-heart"></i>
-                            <i className="home-product-item__like-icon-fill fas fa-heart"></i>
-                        </span> */}
-
                         <div className="home-product-item__rating">
-
-                            {/* <i className="home-product-item__star-gold fas fa-star"></i>
-                            <i className="home-product-item__star-gold fas fa-star"></i>
-                            <i className="home-product-item__star-gold fas fa-star"></i>
-                            <i className="home-product-item__star-gold fas fa-star"></i>
-                            <i className="fas fa-star"></i> */}
 
                             <Rating name="read-only" value={rate} precision={0.1} readOnly size="small"/> 
                             <span className='home-product-item__rate-count'>{rate}</span>
