@@ -29,7 +29,15 @@ function Category(){
         .catch((err)=>{
             console.log("Fetch Data Err",err)
         })
-        dispatch(setProducts(response.data.products))
+        // dispatch(setProducts(response.data.products))
+
+        const {products, total} = response.data
+        const payload = {
+            products, 
+            total
+        }
+
+        dispatch(setProducts(payload))
         
         // setLoading(false)
     }
@@ -53,10 +61,15 @@ function Category(){
             .catch((err)=>{
                 console.log("Fetch Data Err",err)
             })
-            dispatch(setProducts(response.data.products))
+            const {products, total} = response.data
+            const payload = {
+                products, 
+                total
+            }
+
+            dispatch(setProducts(payload))
         }
         fetchData()
-        console.log()
     }
 
     return (

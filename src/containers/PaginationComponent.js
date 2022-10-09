@@ -36,7 +36,13 @@ function PaginationComponent (props, ref) {
         .catch((err)=>{
             console.log("Fetch Data Err",err)
         })
-        dispatch(setProducts(response.data.products))
+        const {products, total} = response.data
+        const payload = {
+            products, 
+            total
+        }
+
+        dispatch(setProducts(payload))
     }
 
     useEffect(()=>{

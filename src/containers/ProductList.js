@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
@@ -66,7 +66,8 @@ function Homefilter({current, total}){
 
 function ProductList(){
 
-    const products = useSelector((state) => state.allProducts.product)
+    const products = useSelector((state) => state.allProducts.products)
+    const total = useSelector((state) => state.allProducts.total)
     const [loading, setLoading] = useState(true)
     const dispatch = useDispatch()
     const [countPage, setCountpage] = useState()
@@ -76,17 +77,26 @@ function ProductList(){
         .catch((err)=>{
             console.log("Fetch Data Err",err)
         })
-        dispatch(setProducts(response.data.products))
-        setCountpage(Math.ceil((response.data.total)/30))
+        const {products, total} = response.data
+        const payload = {
+            products, 
+            total
+        }
+
+        dispatch(setProducts(payload))
+        
+        setCountpage(Math.ceil((total/response.data.products.length)))
         setLoading(false)
     }
 
     
-    useEffect(()=>{
-        fetchData()
+    useLayoutEffect(()=>{
+        fetchData()   
     },
     // eslint-disable-next-line
     [])
+
+
 
     const [currentPage, setCurrentpage] = useState(1)
     const pagiRef = useRef()
@@ -98,13 +108,16 @@ function ProductList(){
             setCurrentpage(currentPage)
         }
 
+        setLoading(true)
+        setCountpage((Math.ceil(total/30)))
+        setLoading(false)
     })
 
 
     return (
         <>
 
-        <Homefilter current={currentPage} total={countPage} />
+        <Homefilter current={currentPage > countPage ? countPage : currentPage } total={countPage} />
 
         <Mobilecategory />
 
@@ -121,7 +134,7 @@ function ProductList(){
         </div>
 
         <ul className="pagination home-product__pagination">
-            {loading ? '' : <PaginationComponent count={countPage} ref={pagiRef} /> }
+            {loading ? '' : countPage <= 1 ? <></> : <PaginationComponent count={countPage} ref={pagiRef} /> }
         </ul>
 
         </>
