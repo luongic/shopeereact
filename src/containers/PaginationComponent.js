@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import {setProducts} from '../redux/actions/productActions'
@@ -21,7 +21,7 @@ const theme = createTheme({
   },
 });
 
-function PaginationComponent (count) {
+function PaginationComponent (props, ref) {
 
     const [page, setPage] = useState(1);
     const handleChange = (event, value) => {
@@ -45,12 +45,19 @@ function PaginationComponent (count) {
     // eslint-disable-next-line
     [page])
 
+    useImperativeHandle(ref, ()=>({
+        getCurrent: () =>{
+            return page;
+        },
+    }))
 
     return (
         <ThemeProvider theme={theme}>
-            <Pagination count={count.count} color="primary" page={page} onChange={handleChange} size="large" shape="rounded"/>
+            <Pagination count={props.count} color="primary" page={page} onChange={handleChange} size="large" shape="rounded"/>
         </ThemeProvider>
     )
 }
+// eslint-disable-next-line
+PaginationComponent = forwardRef(PaginationComponent)
 
 export default PaginationComponent;

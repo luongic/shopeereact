@@ -10,14 +10,14 @@ function Header(){
                         <li className="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate hover ">
                             <span className="hadhover"> Tải xuống</span>
                             <div className="header__qr ">
-                                <img src="./assets/img/qr_code.png" alt="" className="header__qr-img" />
+                                <img src="https://luongic.github.io/shopeeClone/assets/img/qr_code.png" alt="" className="header__qr-img" />
                                 <div className="header__qr-apps">
                                     <a href="gg.com" className="header__qr-link">
-                                        <img src="./assets/img/ch_play.png" alt="" className="header__qr-download-img" />
+                                        <img src="https://luongic.github.io/shopeeClone//assets/img/ch_play.png" alt="" className="header__qr-download-img" />
                                     </a>
                                     
                                     <a href="gg.com" className="header__qr-link">
-                                        <img src="./assets/img/app_store.png" alt="" className="header__qr-download-img" />
+                                        <img src="https://luongic.github.io/shopeeClone//assets/img/app_store.png" alt="" className="header__qr-download-img" />
                                     </a>
                                     
                                 </div>

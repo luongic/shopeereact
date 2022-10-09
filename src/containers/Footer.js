@@ -138,11 +138,11 @@ function Footer() {
                     <div className="col l-2-4 m-8 c-12">
                         <h3 className="footer__heading">Tải Shopee ngay tại</h3>
                         <div className="footer__download">
-                            <img src="./assets/img/qr_code.png" alt="" className="footer__download-qr" />
+                            <img src="https://luongic.github.io/shopeeClone/assets/img/qr_code.png" alt="" className="footer__download-qr" />
                             <div className="footer__download-apps">
-                                <img src="./assets/img/app_store.png" alt="" className="footer__download-app-img" />
-                                <img src="./assets/img/ch_play.png" alt="" className="footer__download-app-img" />
-                                <img src="./assets/img/appgallery.png" alt="" className="footer__download-app-img" />
+                                <img src="https://luongic.github.io/shopeeClone/assets/img/app_store.png" alt="" className="footer__download-app-img" />
+                                <img src="https://luongic.github.io/shopeeClone/assets/img/ch_play.png" alt="" className="footer__download-app-img" />
+                                <img src="https://luongic.github.io/shopeeClone/assets/img/appgallery.png" alt="" className="footer__download-app-img" />
                             </div>
                             
                         </div>

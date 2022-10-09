@@ -1059,6 +1059,7 @@
 .home-filter{
     background-color: rgba(0, 0, 0, .05);
     padding: 12px 22px;
+    padding-right: 0;
     border-radius: 3px;
     display: flex;
     align-items: center;
@@ -1084,10 +1085,14 @@
     margin-left: auto;
 }
 
+.home-filter__page-text{
+    font-size: 1.6rem;
+    margin-right: 4px;
+}
+
 .home-filter__page-num{
     font-size: 1.5rem;
     color: var(--text-color);
-    margin-right: 22px;
 }
 
 .home-filter__page-current{
