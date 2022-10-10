@@ -177,6 +177,7 @@ html{
 
 .select-input__item{
     align-items: center;
+    
 }
 
 .select-input__item-link:hover{
@@ -192,6 +193,7 @@ html{
     font-size: 1.4rem;
     display: block;
     padding: 10px 0;
+    cursor: pointer;
 }
 
 .select-input__item-icon{
