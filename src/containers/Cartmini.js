@@ -12,7 +12,7 @@ function Cartmini() {
             <div className="header__cart-wrap">
                 <i className="header__cart-icon fa-solid fa-cart-shopping"></i>
 
-                <span className="header__cart-quantity">6</span>
+                <span className="header__cart-quantity">{cartItem.length}</span>
 
                 {/* <!-- header__cart-list-no-item: className no item in cart --> */}
 
