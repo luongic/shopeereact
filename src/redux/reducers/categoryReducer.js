@@ -12,9 +12,7 @@ export const categoryReducer = (state = initialState, {type, payload}) =>{
         default:
             return state
     }
-    
 }
-    
 
 export const selectedCategoryReducer = (state = {}, {type, payload}) => {
     switch (type) {

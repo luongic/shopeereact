@@ -1,5 +1,5 @@
-
 import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import './App.css';
 import './style/base.css'
@@ -9,25 +9,42 @@ import './style/responsive.css'
 
 import Appbody from './containers/Appbody';
 import Header from './containers/Header';
+import Login from './containers/Login';
 import Productdetail from './containers/Productdetail'
 import Footer from './containers/Footer';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+
+  const user = useSelector((state) => state.user.user)
+  console.log(user)
+  console.log(user.id !== undefined)
+
+  const [isLoged, setIsloged] = useState(false)
+
+  useEffect(()=>{
+    if(user.id !== undefined){
+      setIsloged(true)
+    }
+  }, [user.id])
+  
+
   return (
     <div className="App">
         <BrowserRouter>
 
-          <Header />
+          <Header isLogin={isLoged} />
 
-
-            <Routes>
-              <Route path='/' element={<Appbody />} />
-              <Route path='/product/:productId' element={<Productdetail />} />
-              <Route>404 Not Found</Route>
-            </Routes>
-
+          <Routes>
+            <Route path='/' element={<Appbody />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/product/:productId' element={<Productdetail />} />
+            <Route>404 Not Found</Route>
+          </Routes>
 
           <Footer />
+
         </BrowserRouter>
     </div>
   );

@@ -37,7 +37,6 @@ function ProductList(){
         setLoading(false)
     }
 
-    
     useLayoutEffect(()=>{
         fetchData()   
     },

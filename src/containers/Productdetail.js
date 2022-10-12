@@ -49,6 +49,12 @@ function Productdetail(){
         setThumnail(item)
     }
 
+    const handleAdd = (product) => {
+        const { id, title, price, discountPercentage } = product
+        const quantity = 1
+        console.log(id, title, price, quantity, discountPercentage)
+    }
+
     return (
         <div className="product-detail">
             <div className="app__container">
@@ -117,7 +123,7 @@ function Productdetail(){
                                 <div className='product-detail__info-bottom'>
                                     <div className='product-detail__info-bottom-wrapper'>
 
-                                        <div className="product-detail__info-add__btn ">
+                                        <div className="product-detail__info-add__btn " onClick={()=> handleAdd(product)}>
                                             <i className="fa-solid fa-cart-plus"></i> Thêm vào giỏ hàng
                                         </div>
 

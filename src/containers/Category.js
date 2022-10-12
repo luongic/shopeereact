@@ -6,6 +6,22 @@ import { removeSelectedCategory } from "../redux/actions/categoryActions";
 import { setProducts } from "../redux/actions/productActions";
 
 
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
+
+function CateSkeleton(){
+    return (
+        <Box sx={{ width: 150 }}>
+            <Skeleton animation="wave" />
+            <Skeleton animation="wave" />
+            <Skeleton animation="wave" />
+            <Skeleton animation="wave" />
+            <Skeleton animation="wave" />
+            <Skeleton animation="wave" />
+        </Box>
+    )
+}
+
 function Category(){
 
     const dispatch = useDispatch()
@@ -87,7 +103,9 @@ function Category(){
                             </li>
     
 
-                            {loading ? <></>  : <>
+                            {loading ? <>
+                                <CateSkeleton />
+                            </>  : <>
                                     {category.map((item, index) => {
                                         return (
                                             <li className={item === currentCate ? "category-item category-item--active" : "category-item category-item" }  key={index} onClick={()=>handleCategoriesclick(item)}>
