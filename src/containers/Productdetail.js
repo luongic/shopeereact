@@ -5,6 +5,7 @@ import axios from 'axios'
 import Rating from '@mui/material/Rating';
 
 import { selectedProduct,removeSelectedProduct } from '../redux/actions/productActions';
+import { addToCart } from '../redux/actions/cartActions';
 
 
 function Productdetail(){
@@ -12,6 +13,7 @@ function Productdetail(){
     const {productId} = useParams()
     const dispatch = useDispatch()
     const product = useSelector((state) => state.product)
+    
     
     const fetchDataProduct = async (id) => {
         const response = await axios.get(`https://dummyjson.com/products/${productId}`)
@@ -50,9 +52,10 @@ function Productdetail(){
     }
 
     const handleAdd = (product) => {
-        const { id, title, price, discountPercentage } = product
+        const { id, title, price,thumbnail , discountPercentage } = product
         const quantity = 1
-        console.log(id, title, price, quantity, discountPercentage)
+        const newProduct = {id, title, price, quantity,thumbnail, discountPercentage}
+        dispatch(addToCart(newProduct))
     }
 
     return (

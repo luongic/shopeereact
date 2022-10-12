@@ -18,8 +18,6 @@ function App() {
 
 
   const user = useSelector((state) => state.user.user)
-  console.log(user)
-  console.log(user.id !== undefined)
 
   const [isLoged, setIsloged] = useState(false)
 

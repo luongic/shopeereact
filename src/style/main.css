@@ -599,7 +599,8 @@
 .header__cart-list-no-item-img{
     width: 100%;
     border-radius: 3px;
-    display: none;
+    height: inherit;
+    /* display: none; */
 }
 
 .header__search-input-wrap{
