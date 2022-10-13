@@ -9,7 +9,7 @@ export const userReducer = (state = initialState, {type, payload}) =>{
         case ActionTypes.LOGIN:
             return {...state, user:payload}
         case ActionTypes.LOGOUT:
-            return {initialState}
+            return {...state, user:[]}
     
         default:
             return state

@@ -1,14 +1,24 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Cartmini from './Cartmini'
 
+import { logout } from '../redux/actions/userActions'
 
 
 function Header(isLogin){
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const user = useSelector((state) => state.user.user)
+
+    const handleLogout = () => {
+        if (window.confirm('Are you sure you want to logout now?')) {
+            dispatch(logout())
+          } else {
+            // Do nothing!
+          }
+    }
 
 
     return (
@@ -111,7 +121,7 @@ function Header(isLogin){
                             </a>
                         </li>
 
-                        {!isLogin.isLogin ? <>
+                        {isLogin.isLogin === false ? <>
                                         <li className="header__navbar-item header__navbar-item--bold header__navbar-item--separate hadhover"
                                         onClick={() => navigate(`/login`)}>
                                         Đăng ký
@@ -135,7 +145,7 @@ function Header(isLogin){
                                     <li className="header__navbar-user-item">
                                         <div>Đơn mua</div>
                                     </li>
-                                    <li className="header__navbar-user-item">
+                                    <li className="header__navbar-user-item" onClick={()=> handleLogout()}>
                                         <div>Đăng xuất</div>
                                     </li>
                                 </ul>

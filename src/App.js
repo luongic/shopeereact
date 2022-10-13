@@ -22,10 +22,13 @@ function App() {
   const [isLoged, setIsloged] = useState(false)
 
   useEffect(()=>{
-    if(user.id !== undefined){
+    if(user.length === 0){
+      setIsloged(false)
+    }
+    else{
       setIsloged(true)
     }
-  }, [user.id])
+  }, [user])
   
 
   return (
