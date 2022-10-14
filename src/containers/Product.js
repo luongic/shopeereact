@@ -13,7 +13,7 @@ function Product(props){
     return (
        
 
-            <div className="col l-2-4 m-4 c-6" onClick={() => navigate(`/product/${product.id}`)}>
+            <div className="col l-2-4 m-4 c-6" onClick={() => product.id === 0 ? '' : navigate(`/product/${product.id}`)}>
                 <div className="home-product-item">
                     <div className="home-product-item__img" style={{ backgroundImage: `url("${product.images[2] ?? product.thumbnail}")` }} ></div>
                     <h4 className="home-product-item__name">{product.title}</h4>

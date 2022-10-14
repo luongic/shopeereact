@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Search from './Search'
 import Cartmini from './Cartmini'
 
 import { logout } from '../redux/actions/userActions'
@@ -174,47 +175,10 @@ function Header(isLogin){
                         
                     </div>
 
+
                     <input type="checkbox" hidden id="mobile-search-checkbox" className="header__search-checkbox" />
 
-                    <div className="header__search">
-                        <div className="header__search-input-wrap">
-                            <input type="text" className="header__search-input" placeholder="Nhập để tìm kiếm" />
-                           {/* <!-- Search history --> */}
-                            <div className="header__search-history">
-                                <h3 className="header__search-history-heading">Lịch sử tìm kiếm</h3>
-                                <ul className="header__search-history-list">
-                                    <li className="header__search-history-item">
-                                        <a href="gg.com">iphone 13promax</a>
-                                    </li>
-                                    <li className="header__search-history-item">
-                                        <a href="gg.com">ipad 2020</a>
-                                    </li>
-                                    <li className="header__search-history-item">
-                                        <a href="gg.com">macbook pro</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                        <div className="header__search-select">
-                            <span className="header__search-select-label">Trong shop</span>
-                            <i className="header__search-select-icon fa-solid fa-chevron-down"></i>
-
-                            <ul className="header__search-option">
-                                <li className="header__search-option-item header__search-option-item--active">
-                                    <span>Trong shop</span>
-                                    <i className="fa-solid fa-check"></i>
-                                </li>
-                                <li className="header__search-option-item">
-                                    <span>Ngoài shop</span>
-                                    <i className="fa-solid fa-check"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <button className="header__search-btn">
-                            <i className="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
+                    <Search />
 
                     {/* <!-- Cart --> */}
                     
