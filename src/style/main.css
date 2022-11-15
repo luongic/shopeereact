@@ -1760,6 +1760,8 @@ i.home-product-item__like-icon-fill{
 input[type='radio']{
     accent-color: var(--page-color);
     cursor: pointer;
+    margin-left: 8px;
+    margin-right: 2px;
 }
 
 label{
