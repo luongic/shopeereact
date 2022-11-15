@@ -138,7 +138,7 @@ function Header(isLogin){
 
                                 <ul className="header__navbar-user-menu">
                                     <li className="header__navbar-user-item">
-                                        <div>Tài khoản của tôi</div>
+                                        <div onClick={() => navigate(`/user`)}>Tài khoản của tôi</div>
                                     </li>
                                     <li className="header__navbar-user-item">
                                         <div>Địa chỉ của tôi</div>

@@ -51,10 +51,6 @@ function Cartmini() {
 
                     </> : <img src="https://luongic.github.io/shopeeClone/assets/img/no-item.png" alt="" className="header__cart-list-no-item-img" /> }
 
-                    
-                
-                    
-
                     <button className="header__cart-view-cart btn btn-primary">Xem giỏ hàng</button>
 
                 </div>

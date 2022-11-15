@@ -11,6 +11,7 @@ import Appbody from './containers/Appbody';
 import Header from './containers/Header';
 import Login from './containers/Login';
 import Productdetail from './containers/Productdetail'
+import UserInfo from './containers/UserInfo';
 import Footer from './containers/Footer';
 import { useEffect, useState } from 'react';
 
@@ -41,6 +42,7 @@ function App() {
             <Route path='/' element={<Appbody />} />
             <Route path='/login' element={<Login />} />
             <Route path='/product/:productId' element={<Productdetail />} />
+            <Route path='/user' element={<UserInfo isLogin={isLoged} />} />
             <Route>404 Not Found</Route>
           </Routes>
 
