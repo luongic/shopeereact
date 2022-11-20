@@ -1655,7 +1655,9 @@ i.home-product-item__like-icon-fill{
 }
 
 .product-detail__info-desc{
-
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: #555;
 }
 
 .product-detail__info-bottom{

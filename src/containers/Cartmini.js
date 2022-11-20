@@ -1,10 +1,18 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { deleteItemCart } from '../redux/actions/cartActions';
 
 
 function Cartmini() {
 
+    const dispatch = useDispatch()
+
+
 
     const cartItem = useSelector((state)=>state.cart.item)
+
+    const handleDeleteItem = (index) => {
+        dispatch(deleteItemCart(index))
+    }
     
 
     return (
@@ -39,7 +47,7 @@ function Cartmini() {
                                             </div>
                                             <div className="header__cart-item-body">
                                                 <span className="header__cart-item-description">Giảm giá: {Math.floor(item.discountPercentage)} %</span>
-                                                <span className="header__cart-item-del">Xóa</span>
+                                                <span className="header__cart-item-del" onClick={()=> handleDeleteItem(index)}>Xóa</span>
                                             </div>
                                         </div>
                                     </li>

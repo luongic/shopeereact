@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Validator from "./Validator"
-
 import { login } from '../redux/actions/userActions'
 import { useDispatch } from "react-redux"
 
@@ -22,7 +21,6 @@ function Login () {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    
                     username: username,
                     password: password,
                 })
@@ -31,20 +29,16 @@ function Login () {
             .catch((err)=>{
                 console.log("Fetch Data Err",err)
             })
-
-            if(response.token){
-                dispatch(login(response))
-                alert('Đăng nhập thành công')
-                navigate('/')
+                if(response.token){
+                    dispatch(login(response))
+                    alert('Đăng nhập thành công')
+                    navigate('/')
+                }
+                else{
+                    alert('Sai tài khoản hoặc mật khẩu')
+                }
             }
-            else{
-                alert('Sai tài khoản hoặc mật khẩu')
-
-            }
-
-            }
-            
-            fetchData()
+        fetchData()
     }
 
 

@@ -30,9 +30,11 @@ export const cartReducer = (state = initialState, {type, payload}) =>{
             return {...state, item: state.item.concat([payload])}
             
         case ActionTypes.REMOVE_FROM_CART:
-            return {}
+            return {
+                ...state, 
+                item:  state.item.filter((item, index) => index !==payload)
+            }
 
-        
         default:
             return state
     }

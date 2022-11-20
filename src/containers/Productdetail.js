@@ -121,7 +121,7 @@ function Productdetail(){
                                 </div>
 
                                 <div className="product-detail__info-desc">
-                                    {product.description}
+                                    Chi tiết sản phẩm: {product.description}
                                 </div>
                                 <div className='product-detail__info-bottom'>
                                     <div className='product-detail__info-bottom-wrapper'>
