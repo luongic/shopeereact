@@ -914,6 +914,7 @@
 
 .header__sort-item{
     flex: 1;
+    cursor: pointer;
 }
 
 .header__sort-item-active .header__sort-link{
@@ -1083,6 +1084,8 @@
     user-select: none;
     -webkit-user-select: none;
     padding: 0 6px;
+    cursor: pointer;
+    text-transform: capitalize;
 }
 
 
