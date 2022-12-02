@@ -30,7 +30,6 @@ function Mobilehomefilter(){
             }
         },
     ]
-
     const [fillterSelected, setFilterSelected] = useState(0)
     const handleFilterClick = (index, disAct) => {
         setFilterSelected(index)

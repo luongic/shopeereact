@@ -1,16 +1,12 @@
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-
 import {setProducts} from '../redux/actions/productActions'
 import { useEffect, useState } from 'react'
 
 function Search(){
-
     const dispatch = useDispatch()
     const [searchHistory,setSearchHis] = useState(JSON.parse(localStorage.getItem('searchHis')) ?? [])
     const [searchQuerry, setSearchQuerry] = useState('')
-
-    
 
     const fetchData = async (querry) =>{
         const response = await axios.get(`https://dummyjson.com/products/search?q=${querry}`)
@@ -22,7 +18,6 @@ function Search(){
             products, 
             total
         }
-
         const nullRes = {
                 id: 0,
                 title: "Khong tim thay san pham",
@@ -36,7 +31,6 @@ function Search(){
                 thumbnail: "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg",
                 images: ['https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg']
         }
-
         if(products.length !== 0){
             dispatch(setProducts(payload))
         }
@@ -48,14 +42,11 @@ function Search(){
 
     const addTohistory = (querry) => {
         let historySearch = (JSON.parse(localStorage.getItem('searchHis')) ?? [])
-
         const bill = historySearch.find(bill => bill === querry);
-
         if (bill){
             
         }
         else {
-            
             if (querry !== ''){
                 historySearch.unshift(querry)
                 if(historySearch.length > 5){
@@ -88,59 +79,39 @@ function Search(){
 
     return (
         <div className="header__search">
-                        <div className="header__search-input-wrap">
+            <div className="header__search-input-wrap">
 
-                            <input type="text" className="header__search-input"
-                                value={searchQuerry}
-                                onChange={e => setSearchQuerry(e.target.value)}
-                            placeholder="Nhập để tìm kiếm" />
+                <input type="text" className="header__search-input"
+                    value={searchQuerry}
+                    onChange={e => setSearchQuerry(e.target.value)}
+                placeholder="Nhập để tìm kiếm" />
 
-                            <div className="header__search-history">
-                                <h3 className="header__search-history-heading">Lịch sử tìm kiếm</h3>
-                                <ul className="header__search-history-list">
+                <div className="header__search-history">
+                    <h3 className="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                    <ul className="header__search-history-list">
+                        {searchHistory.length === 0 ? <li className="header__search-history-item">
+                                        <div> <i>Let search something for you </i></div>
+                                        
+                                    </li> : 
+                        searchHistory.map((item, index)=>{
+                            return <li className="header__search-history-item" key={index} onClick={()=> handleSearchClick(item)}>
+                                        <div >{item}</div>
+                                        <div className="header__search-history-item__clear" 
+                                            onClick={(e)=> delHistory(e,index)}
+                                        > x </div>
+                                    </li>
+                        })
+                            }
+                    </ul>
+                </div>
 
-                                    {/* Get search history from localstorage and display here */}
-                                    {searchHistory.length === 0 ? <li className="header__search-history-item">
-                                                    <div> <i>Let search something for you </i></div>
-                                                    
-                                                </li> : 
-                                    searchHistory.map((item, index)=>{
-                                        return <li className="header__search-history-item" key={index} onClick={()=> handleSearchClick(item)}>
-                                                    <div >{item}</div>
-                                                    <div className="header__search-history-item__clear" 
-                                                        onClick={(e)=> delHistory(e,index)}
-                                                    > x </div>
-                                                </li>
-                                    })
-                                     }
-                                    
-                                    
-                                </ul>
-                            </div>
+            </div>
 
-                        </div>
+            <button className="header__search-btn" onClick={()=>handleSearchClick(searchQuerry)} >
+                <i className="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+            </button>
 
-                        {/* <div className="header__search-select">
-                            <span className="header__search-select-label">Trong shop</span>
-                            <i className="header__search-select-icon fa-solid fa-chevron-down"></i>
-
-                            <ul className="header__search-option">
-                                <li className="header__search-option-item header__search-option-item--active">
-                                    <span>Trong shop</span>
-                                    <i className="fa-solid fa-check"></i>
-                                </li>
-                                <li className="header__search-option-item">
-                                    <span>Ngoài shop</span>
-                                    <i className="fa-solid fa-check"></i>
-                                </li>
-                            </ul>
-                        </div> */}
-
-                        <button className="header__search-btn" onClick={()=>handleSearchClick(searchQuerry)} >
-                            <i className="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-                        </button>
-
-                    </div>
+        </div>
     )
 
 }
