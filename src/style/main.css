@@ -621,9 +621,9 @@
     /* position: relative; */
 }
 
-/* .header__search-input-wrap:hover .header__search-history{
+.header__search-input-wrap:hover .header__search-history{
     display: block;
-} */
+}
 
 .header__search-input:focus ~.header__search-history{
     display: block;
@@ -763,12 +763,15 @@
     display: flex;
     align-items: center ;
     justify-content: space-between;
+    font-size: 1.4rem;
+    line-height: 38px;  
+    cursor: pointer;
 }
 .header__search-history-item div{
-    text-decoration: none;
+    /* text-decoration: none;
     font-size: 1.4rem;
-    line-height: 38px;
-    cursor: pointer;
+    line-height: 38px; */
+    /* cursor: pointer; */
 }
 
 .header__search-history-item__clear{
